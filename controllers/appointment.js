@@ -2,13 +2,11 @@
 const mongoose = require("mongoose");
 const appointment = require("../models/appointmentModel");
 const connectDB = require("../lib/connectDB");
-const getYearMonthDay = require("../lib/AvailableDays");
 const CreateAppointment = require("../lib/CreateAppointment");
 async function appointmentFormGet(req, res, next) {
   connectDB(req.params.provider, "admin", "7727987");
   res.json(await appointment.find());
   console.log("Got a get request");
-  getYearMonthDay();
 }
 
 // Gets the request parameters as JSON, changes them from Strings into the appropriate type defined in the DB Model, then calls CreateAppointment().
